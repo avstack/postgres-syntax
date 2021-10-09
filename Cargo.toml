@@ -1,0 +1,19 @@
+[package]
+name = "postgres-syntax"
+version = "0.1.0"
+edition = "2018"
+description = "Compile-time syntax checking of PostgreSQL queries"
+authors = ["Jasper Hugo <jasper@avstack.io>"]
+license = "MIT/Apache-2.0"
+repository = "https://github.com/avstack/postgres-syntax"
+documentation = "https://docs.rs/postgres-syntax/"
+readme = "README.md"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+libpg_query2-sys = { version = "0.2", default-features = false }
+litrs = { version = "0.2", default-features = false }
+quote = { version = "1", default-features = false, features = ["proc-macro"] }
+serde_json = { version = "1", default-features = false, features = ["std"] }
