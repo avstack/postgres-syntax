@@ -11,6 +11,8 @@ It doesn't know anything about your schema, so it doesn't do type-checking or ve
 The crate provides one macro, `postgres_syntax::sql`, which takes a string literal and passes it through if it's valid SQL syntax, or emits a compiler error if it's not valid SQL.
 
 ```rust
+use postgres_syntax::sql;
+
 let _ = sql!("SELECT name, email_address FROM user WHERE id = $1 BLARG");
 ```
 
