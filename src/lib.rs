@@ -12,7 +12,10 @@ use quote::quote;
 pub fn sql(input: TokenStream) -> TokenStream {
   let input = input.into_iter().collect::<Vec<_>>();
   if input.len() != 1 {
-    let msg = format!("expected exactly one string literal as input, got {} tokens", input.len());
+    let msg = format!(
+      "expected exactly one string literal as input, got {} tokens",
+      input.len()
+    );
     return quote! { compile_error!(#msg) }.into();
   }
   let string_lit = match StringLit::try_from(&input[0]) {
@@ -35,13 +38,11 @@ fn check_sql(sql: &str) -> Result<(), String> {
   let result = if pg_parse_result.error.is_null() {
     Ok(())
   }
+  else if let Ok(message) = unsafe { CStr::from_ptr((*pg_parse_result.error).message) }.to_str() {
+    Err(message.to_owned())
+  }
   else {
-    if let Ok(message) = unsafe { CStr::from_ptr((*pg_parse_result.error).message) }.to_str() {
-      Err(message.to_owned())
-    }
-    else {
-      Err("parse failed, and error message wasn't valid UTF-8".to_owned())
-    }
+    Err("parse failed, and error message wasn't valid UTF-8".to_owned())
   };
 
   unsafe {

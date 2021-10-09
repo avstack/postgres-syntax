@@ -16,4 +16,3 @@ proc-macro = true
 libpg_query2-sys = { version = "0.2", default-features = false }
 litrs = { version = "0.2", default-features = false }
 quote = { version = "1", default-features = false, features = ["proc-macro"] }
-serde_json = { version = "1", default-features = false, features = ["std"] }
