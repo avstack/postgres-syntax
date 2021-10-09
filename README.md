@@ -6,8 +6,6 @@ It doesn't know anything about your schema, so it doesn't do type-checking or ve
 
 [![Crate](https://img.shields.io/crates/v/postgres-syntax.svg)](https://crates.io/crates/postgres-syntax)
 
-[API Documentation](https://docs.rs/postgres-syntax)
-
 # Example
 
 The crate provides one macro, `postgres_syntax::sql`, which takes a string literal and passes it through if it's valid SQL syntax, or emits a compiler error if it's not valid SQL.
