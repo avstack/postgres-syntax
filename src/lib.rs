@@ -3,7 +3,7 @@ use std::{
   ffi::{CStr, CString},
 };
 
-use libpg_query2_sys::{pg_query_free_parse_result, pg_query_parse};
+use libpg_query::{pg_query_free_parse_result, pg_query_parse};
 use litrs::StringLit;
 use proc_macro::TokenStream;
 use quote::quote;
