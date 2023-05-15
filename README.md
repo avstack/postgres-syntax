@@ -1,6 +1,6 @@
 # postgres-syntax
 
-This crate provides simple compile-time syntax checking of PostgreSQL queries using [libpg_query](https://github.com/pganalyze/libpg_query) (currently version 13-2.0.7).
+This crate provides simple compile-time syntax checking of PostgreSQL queries using [libpg_query](https://github.com/pganalyze/libpg_query) (currently version 15-4.2.0).
 
 It doesn't know anything about your schema, so it doesn't do type-checking or verify that tables you reference actually exist. It's just checking that the SQL syntax is valid. If you want type and name checking, you might prefer [sqlx](https://github.com/launchbadge/sqlx).
 
